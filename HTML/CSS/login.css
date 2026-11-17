@@ -1,0 +1,153 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+input::placeholder{
+    font-size: 0.9rem;
+}
+.bodyLogin{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/telaLogin/telaLogin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1000;
+    transform-origin: center;
+}
+.bodyLogin::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(200deg, rgba(38,17,12,0.05) 30%, rgba(38,17,12,0.65) 100%);
+    pointer-events: none;
+}
+
+.linhaEsqueciSenha{
+    width: 100%;
+    text-align: center;
+}
+
+
+.titulo{
+    font-family: 'Brasika',sans-serif;
+    color: var(--cor-marrom-escuro-2);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fonte-titulo-grande);
+}
+
+.esquecerSenha{
+    color: var(--cor-marrom-escuro-2);
+    transition: color var(--transicao-rapida);
+}
+.esquecerSenha:hover{
+    color: var(--cor-azul-marinho);
+}
+
+.hr{
+    height: 3px;
+    width: 80%;
+    margin: auto;
+    border-radius: 50px;
+    background-color: var(--cor-marrom-principal);
+    opacity: 1;
+}
+
+
+.botao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+}
+.botaoEntrar{
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-azul-marinho);
+    transition: background-color var(--transicao-lenta), transform var(--transicao-rapida);
+}
+.botaoEntrar:hover{
+    background-color: var(--cor-azul-medio);
+    color: var(--cor-azul-marinho);
+}
+.botaoEntrar:active{
+    transform: scale(0.98);
+}
+
+.cadastrarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-style: italic;
+    color: var(--cor-marrom-medio);
+}
+.cadastrar{
+    color: var(--cor-marrom-claro);
+    transition: color var(--transicao-rapida);
+}
+.cadastrar:hover{
+    color: var(--cor-azul-marinho);
+}
+
+
+.erroLoginContainer{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    height: fit-content;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--cor-texto-claro-alternativo);
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.264);
+    padding: 14px 22px 18px;
+    top: 10px;
+    z-index: 1000;
+    overflow: hidden;
+}
+.erroLoginContainer[style*="flex"]{
+    animation: cairErro 0.35s ease both;
+}
+.errorLoginText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.errorLoginText h4{
+    font-family: 'Brasika', sans-serif;
+    font-size: var(--fonte-media);
+    color: var(--cor-marrom-vermelhado);
+}
+.errorLoginText p{
+    width: 90%;
+    max-width: 320px;
+    align-self: center;
+    font-size: var(--fonte-pequena);
+}
+.iconeErro{
+    width: 64px;
+}
+.erroLoginContainer::after{
+    content: "";
+    background-color: var(--cor-marrom-medio);
+    width: 100%;
+    position: absolute;
+    right: 0;
+    height: 5px;
+    bottom: 0;
+    border-radius: 20px;
+    animation: timingToRight ease-out 4s;
+}
+

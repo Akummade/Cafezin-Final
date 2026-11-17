@@ -1,0 +1,283 @@
+.paginaPesquisa {
+  min-height: calc(100vh - 76px);
+  background: var(--cor-background);
+  color: var(--cor-marrom-escuro-2);
+  font-family: "Poppins", sans-serif;
+}
+
+.conteudoPesquisa {
+  width: min(1500px, 88%);
+  padding-top: 44px;
+}
+
+.tituloPesquisa {
+  margin: 0;
+  color: var(--cor-marrom-escuro-2);
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  line-height: 1.35;
+  font-family: "Brasika", sans-serif;
+  font-weight: 400;
+}
+
+.tituloPesquisa span {
+  color: var(--cor-laranja-escuro);
+}
+
+.abasPesquisa {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 8px;
+  border-bottom: 1px solid var(--cor-bege-claro);
+    font-family: "Poppins", sans-serif;
+}
+
+.abaPesquisa {
+  position: relative;
+  min-width: 98px;
+  padding: 15px 22px 17px;
+  border: 0;
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.abaPesquisa::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: transparent;
+  content: "";
+}
+
+.abaPesquisa.ativa {
+  color: var(--cor-laranja-escuro);
+}
+
+.abaPesquisa.ativa::after {
+  background: var(--cor-laranja);
+}
+
+.abaPesquisa:focus-visible,
+.filtroPesquisa:focus-visible {
+  outline: 2px solid var(--cor-laranja);
+  outline-offset: 3px;
+}
+
+.painelPesquisa {
+  min-height: 540px;
+}
+
+.filtrosPesquisa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.filtroPesquisa {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: var(    --espacamento-pequeno);
+  padding: 0 12px;
+  border: 1px solid var(--cor-bege-claro);
+  border-radius: var(--borda-arredondada-pequena);
+  background: var(--cor-background);
+  color: var(--cor-marrom-principal);
+  font: inherit;
+  font-size: .95rem;
+  white-space: nowrap;
+  cursor: pointer;
+
+}
+
+.filtroPesquisa i {
+  font-size: .85rem;
+}
+
+.filtroPesquisa:hover {
+  border-color: var(--cor-laranja);
+}
+
+/* filtro ativo: fundo laranja com texto branco */
+.filtroPesquisa.selecionado {
+  border-color: var(--cor-laranja-escuro);
+  background: var(--cor-laranja-escuro);
+  color: #fff;
+  font-weight: 600;
+}
+
+.filtroPesquisa.selecionado:hover {
+  border-color: var(--cor-laranja-escuro);
+  filter: brightness(1.08);
+}
+
+.filtroLimpar {
+  padding-inline: 25px;
+  border-style: dashed;
+  color: var(--cor-laranja-escuro);
+}
+
+.filtroLimpar[hidden] {
+  display: none;
+}
+
+/* menus suspensos (Ordenar, Filtros, Preço) */
+.filtroMenu {
+  position: relative;
+}
+
+.menuFiltro {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 220px;
+  max-width: calc(100vw - 8%);
+  padding: 6px;
+  border: 1px solid var(--cor-bege-claro);
+  border-radius: var(--borda-arredondada-pequena);
+  background: var(--cor-background);
+  box-shadow: 0 8px 24px rgba(75, 54, 42, .15);
+}
+
+.menuFiltro[hidden] {
+  display: none;
+}
+
+.menuFiltro button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--cor-marrom-principal);
+  font: inherit;
+  font-size: .92rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menuFiltro button:hover,
+.menuFiltro button:focus-visible {
+  background: var(--cor-bege-claro);
+  outline: none;
+}
+
+.menuFiltro button[aria-checked="true"] {
+  color: var(--cor-laranja-escuro);
+  font-weight: 600;
+}
+
+.menuFiltro button[aria-checked="true"]::after {
+  content: "✓";
+}
+
+.rotuloCategoriasPesquisa {
+  margin-right: 4px;
+  color: var(--cor-marrom-principal);
+  font-size: var(--fonte-pequena);
+  font-weight: 700;
+}
+
+.resultadosPesquisa {
+  min-height: 420px;
+}
+
+.filtrosPesquisa[hidden] {
+  display: none;
+}
+
+/* Produtos de cada loja: linhas de 5 produtos */
+.resultadosPesquisa .listaProdutosLoja {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.resultadosPesquisa .listaProdutosLoja .produtoCard {
+  width: auto;
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .resultadosPesquisa .listaProdutosLoja {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .resultadosPesquisa .listaProdutosLoja {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .resultadosPesquisa .listaProdutosLoja {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1600px) {
+  .conteudoPesquisa {
+    width: min(1500px, 88%);
+  }
+}
+
+@media (max-width: 800px) {
+  .conteudoPesquisa {
+    width: 92%;
+    padding-top: 30px;
+  }
+
+  .filtrosPesquisa {
+    gap: 8px;
+  }
+
+  .filtroPesquisa {
+    min-height: 43px;
+    padding-inline: 17px;
+    font-size: .88rem;
+  }
+
+  .abaPesquisa {
+    min-width: 88px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tituloPesquisa {
+    font-size: 1.35rem;
+  }
+
+  .abaPesquisa {
+    padding: 13px 17px 15px;
+  }
+
+  .filtrosPesquisa {
+    gap: 7px;
+  }
+
+  .filtroPesquisa {
+    min-height: 39px;
+    padding-inline: 13px;
+    font-size: .8rem;
+  }
+
+  .resultadosPesquisa {
+    min-height: 360px;
+  }
+}
