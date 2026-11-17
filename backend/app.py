@@ -1,0 +1,47 @@
+from flask import Flask
+from flask_cors import CORS
+
+
+from extensions import db, jwt
+from routes.auth_rotas import auth_bp
+from routes.catalogo_bp import catalogo_bp
+from routes.endereco import endereco_bp
+from routes.avaliacao_bp import avaliacao_bp
+from routes.loja_bp import loja_bp
+from routes.admin_bp import admin_bp
+from routes.upload_bp import upload_bp
+from routes.comprador_bp import comprador_bp
+from config import Config
+
+
+app = Flask(__name__)
+
+CORS(app)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = Config.SQLALCHEMY_DATABASE_URI
+app.config["SECRET_KEY"] = Config.SECRET_KEY
+app.config["UPLOAD_FOLDER"] = Config.UPLOAD_FOLDER
+app.config["MAX_CONTENT_LENGTH"] = Config.MAX_CONTENT_LENGTH
+app.config["EXTENSOES_PERMITIDAS"] = Config.EXTENSOES_PERMITIDAS
+
+db.init_app(app)
+jwt.init_app(app)
+
+
+app.register_blueprint(auth_bp)
+app.register_blueprint(catalogo_bp)
+app.register_blueprint(endereco_bp)
+app.register_blueprint(avaliacao_bp)
+app.register_blueprint(loja_bp)
+app.register_blueprint(admin_bp)
+app.register_blueprint(upload_bp)
+app.register_blueprint(comprador_bp)
+
+
+@app.route("/health")
+def health():
+    return {"status": "ok"}
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)

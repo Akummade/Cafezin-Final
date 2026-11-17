@@ -1,0 +1,40 @@
+from .usuario import Usuario
+from .comprador import Comprador
+from .endereco import Endereco
+from .comprador_endereco import Comprador_Endereco
+from .pagamento import Pagamento
+from .entregador import Entregador
+from .categoria import Categoria
+from .loja import Loja
+from .loja_favorita import LojaFavorita
+from .produto import Produto
+from .pedido import Pedido
+from .item_pedido import ItemPedido
+from .entrega import Entrega
+from .avaliacao_entregador import AvaliacaoEntregador
+from .avaliacao_loja import AvaliacaoLoja
+from .avaliacao_produto import AvaliacaoProduto
+from .produto_popularidade import ProdutoPopularidade
+from .loja_popularidade import LojaPopularidade
+ 
+__all__ = [
+    "Usuario",
+    "Comprador",
+    "Endereco",
+    "Comprador_Endereco",
+    "Pagamento",
+    "Entregador",
+    "Categoria",
+    "Loja",
+    "LojaFavorita",
+    "Produto",
+    "Pedido",
+    "ItemPedido",
+    "Entrega",
+    "AvaliacaoEntregador",
+    "AvaliacaoLoja",
+    "AvaliacaoProduto",
+    "ProdutoPopularidade",
+    "LojaPopularidade"
+]
+ 
